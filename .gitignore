@@ -1,0 +1,53 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# =========================
+# Environment & Secrets
+# =========================
+.env
+*.env
+*.key
+*.pem
+*.crt
+
+# GCP service account keys
+*service-account*.json
+*credentials*.json
+
+# =========================
+# Audio / Media files
+# =========================
+*.mp3
+*.wav
+*.flac
+*.m4a
+
+# =========================
+# Output / Transcripts
+# =========================
+output/
+transcripts/
+*.txt
+*.srt
+*.vtt
+*.json
+
+# =========================
+# Logs & Temp
+#
+# created by virtualenv automatically
+.venv/bin
+
+# IDEs
+.idea/
+.vscode/
