@@ -170,8 +170,17 @@ def fetch_hindi_captions(video_id: str) -> str:
         t = api.list(video_id).find_manually_created_transcript(["hi"])
     except NoTranscriptFound:
         t = api.list(video_id).find_generated_transcript(["hi"])
+
     lines = t.fetch()
-    return "\n".join(x.text for x in lines)
+
+    # IMPORTANT: join WITHOUT spaces to avoid breaking words like पुण्यार्जक
+    raw = "".join(x.text for x in lines)
+
+    # Normalize whitespace AFTER joining
+    text = re.sub(r"\s+", " ", raw).strip()
+
+    return text
+
 
 def refine_with_gemini(text: str) -> str:
     client = genai.Client(api_key=GEMINI_API_KEY)
